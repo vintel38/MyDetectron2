@@ -51,6 +51,7 @@ from detectron2.evaluation import inference_context
 from detectron2.utils.logger import log_every_n_seconds
 from detectron2.data import DatasetMapper, build_detection_test_loader
 import detectron2.utils.comm as comm
+import numpy as np
 import torch
 import time
 import datetime
