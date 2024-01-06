@@ -31,6 +31,7 @@ from detectron2.data import (
 )
 from detectron2.evaluation import (
     DatasetEvaluator,
+    COCOEvaluator,
     inference_on_dataset,
     print_csv_format,
     verify_results,
