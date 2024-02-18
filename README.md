@@ -7,6 +7,7 @@
 # Customization Vintel38
 
 - Adding evaluation loop during training to visualize overfit step using [Medium article](https://eidos-ai.medium.com/training-on-detectron2-with-a-validation-set-and-plot-loss-on-it-to-avoid-overfitting-6449418fbf4e) from Ortegatron [Gist](https://gist.github.com/ortegatron/c0dad15e49c2b74de8bb09a5615d9f6b#file-mytrainer-py) fixed by Detectron2 [Issue #810](https://github.com/facebookresearch/detectron2/issues/810)
+- Add custom augmentations (Resize, Brightness, Contrast, Flip, MinIOURandomCrop) inside CustomTrainer class 
 
 Detectron2 is Facebook AI Research's next generation library
 that provides state-of-the-art detection and segmentation algorithms.
