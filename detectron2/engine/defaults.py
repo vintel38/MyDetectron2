@@ -801,8 +801,11 @@ class CustomTrainer(DefaultTrainer):
     @classmethod
     # https://stackoverflow.com/questions/71774744/how-to-use-detectron2s-augmentation-with-datasets-loaded-using-register-coco-in
     def build_train_loader(cls, cfg):
-        mapper = DatasetMapper(cfg, is_train=True, augmentations=[T.Resize((800, 800)), T.RandomBrightness(0.8, 1.8), T.RandomContrast(0.6, 1.3), T.RandomFlip(prob=0.4, horizontal=False, vertical=True), T.RandomFlip(prob=0.4, horizontal=True, vertical=False), T.MinIoURandomCrop()])
-        return build_detection_train_loader(cfg, mapper=mapper) 
+        try:
+            mapper = DatasetMapper(cfg, is_train=True, augmentations=cfg.SOLVER.AUG_LIST)
+            return build_detection_train_loader(cfg, mapper=mapper)
+        except:
+            return build_detection_train_loader(cfg)
 
 # Access basic attributes from the underlying trainer
 for _attr in ["model", "data_loader", "optimizer"]:
